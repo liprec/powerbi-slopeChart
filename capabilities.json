@@ -1,0 +1,740 @@
+{
+    "dataRoles": [{
+            "displayName": "Legend",
+            "name": "legend",
+            "kind": "Grouping"
+        },
+        {
+            "displayName": "Value 1",
+            "name": "value1",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Value 2",
+            "name": "value2",
+            "kind": "Measure"
+        },
+        {
+            "displayName": "Tooltips",
+            "name": "tooltips",
+            "kind": "Measure"
+        }
+    ],
+    "dataViewMappings": [{
+        "conditions": [{
+            "legend": {
+                "min": 0,
+                "max": 1
+            },
+            "value1": {
+                "min": 0,
+                "max": 1
+            },
+            "value2": {
+                "min": 0,
+                "max": 1
+            }
+        }],
+        "categorical": {
+            "categories": {
+                "for": {
+                    "in": "legend"
+                },
+                "dataReductionAlgorithm": {
+                    "top": { "count": 100}
+                }
+            },
+            "values": {
+                "select": [
+                    {
+                        "bind": {
+                            "to": "value1"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "value2"
+                        }
+                    }
+                ]
+            }
+        }
+    }],
+    "objects": {
+        "chart": {
+            "displayName": "Chart",
+            "properties": {
+                "secondaryAxis": {
+                    "displayName": "Secondary y-axis",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "marginTop": {
+                    "displayName": "Top margin",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "marginBottom": {
+                    "displayName": "Bottom margin",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "marginLeft": {
+                    "displayName": "Left margin",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "marginRight": {
+                    "displayName": "Right margin",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        },
+        "plotArea":{
+            "displayName": "Plot Area",
+            "properties": {
+                "show": {
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "fillColor":{
+                    "displayName": "Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "transparency": {
+                    "displayName": "Transparency",
+                    "type" : { 
+                        "numeric": true 
+                    }
+                }
+            }
+        },
+        "legend": {
+            "displayName": "Legend",
+            "properties": {
+                "show": {
+                    "displayName": "Show legend",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "fontColor": {
+                    "displayName": "Text color",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "fontSize": {
+                    "displayName": "Text Size",
+                    "type": { "formatting": { "fontSize": true } }
+                },
+                "fontFamily": {
+                    "displayName": "Font family",
+                    "type": {
+                        "formatting": {
+                            "fontFamily": true
+                        }
+                    }
+                },
+                "useShapeMarker": {
+                    "displayName": "Match line marker",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "markerType": {
+                    "displayName": "Marker type",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "value": "0",
+                                "displayName": "● - Circle"
+                            },
+                            {
+                                "value": "1",
+                                "displayName": "■ - Square"
+                            },
+                            {
+                                "value": "2",
+                                "displayName": "▲ - Triangle"
+                            },
+                            {
+                                "value": "3",
+                                "displayName": "♦ - Diamond"
+                            },
+                            {
+                                "value": "4",
+                                "displayName": "× - Cross"
+                            },
+                            {
+                                "value": "5",
+                                "displayName": "None"
+                            }
+                        ]
+                    }
+                },
+                "strokeWidth": {
+                    "displayName": "Marker size",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "markerColorAutomatic": {
+                    "displayName": "Automatic color",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "markerColor": {
+                    "displayName": "Marker Color",
+                    "type": {
+                        "fill": {
+                            "solid": { 
+                                "color": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "category": {
+            "displayName": "X-Axis",
+            "properties": {
+                "show": { 
+                    "displayName": "Show",
+                    "type": { "bool": true }
+                },
+                "fontColor": {
+                    "displayName": "Color",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "fontSize": {
+                    "displayName": "Text Size",
+                    "type": { "formatting": { "fontSize": true } }
+                },
+                "fontFamily": {
+                    "displayName": "Font family",
+                    "type": {
+                        "formatting": {
+                            "fontFamily": true
+                        }
+                    }
+                }
+            }
+        },
+        "axis1": {
+            "displayName": "Y-Axis",
+            "properties": {
+                "show": { 
+                    "displayName": "Show",
+                    "type": { "bool": true }
+                },
+                "scaleType": {
+                    "displayName": "Scale type",
+                    "type" : { "enumeration": [
+                        {
+                            "value": "0",
+                            "displayName": "Linear"
+                        },
+                        {
+                            "value": "1",
+                            "displayName": "Log"
+                        },
+                        {
+                            "value": "2",
+                            "displayName": "Exp"
+                        }
+                    ]}
+                },
+                "orientation": {
+                    "displayName": "Axis orientation",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "displayName": "Ascending",
+                                "value": "0"
+                            },
+                            { 
+                                "displayName": "Descending",
+                                "value": "1"
+                            }
+                        ]
+                    }
+                },
+                "start": {
+                    "displayName": "Start",
+                    "description": "Start value of the axis",
+                    "placeHolderText": "Auto",
+                    "type": { "numeric": true }
+                },
+                "end": {
+                    "displayName": "End",
+                    "description": "End value of the axis",
+                    "placeHolderText": "Auto",
+                    "type": { "numeric": true }
+                },
+                "color": {
+                    "displayName": "Tick Color",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "fontColor": {
+                    "displayName": "Label Color",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "fontSize": {
+                    "displayName": "Text Size",
+                    "type": { "formatting": { "fontSize": true } }
+                },
+                "fontFamily": {
+                    "displayName": "Font family",
+                    "type": {
+                        "formatting": {
+                            "fontFamily": true
+                        }
+                    }
+                },
+                "labelDisplayUnits": {
+                    "displayName": "Display units",
+                    "description": "Selects the unit (millions, billions, etc.)",
+                    "type": {
+                        "formatting": {
+                            "labelDisplayUnits": true
+                        }
+                    }
+                },
+                "labelPrecision": {
+                    "displayName": "Value decimal places",
+                    "description": "Select the number of decimal places to display",
+                    "placeHolderText": "Auto",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "showTitle": {
+                    "displayName": "Title",
+                    "type": { "bool": true }
+                },
+                "showGrid": {
+                    "displayName": "Gridlines",
+                    "type": { "bool": true }
+                },
+                "title": {
+                    "displayName": "Title",
+                    "placeHolderText": "Auto",
+                    "type": { "text": true }
+                },
+                "titleFontColor": {
+                    "displayName": "Title color",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "titleFontSize": {
+                    "displayName": "Title text Size",
+                    "type": { "formatting": { "fontSize": true } }
+                },
+                "titleFontFamily": {
+                    "displayName": "Title font family",
+                    "type": {
+                        "formatting": {
+                            "fontFamily": true
+                        }
+                    }
+                },
+                "titleAlignment": {
+                    "displayName": "Title alignment",
+                    "type": {
+                        "formatting": {
+                            "alignment": true
+                        }
+                    }
+                },
+                "gridColor": {
+                    "displayName": "Color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                },
+                "strokeWidth": {
+                    "displayName": "Stroke size",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "gridStyle": {
+                    "displayName": "Line style",
+                    "type" : { "enumeration": [
+                        {
+                            "value": "0",
+                            "displayName": "Dashed"
+                        },
+                        {
+                            "value": "1",
+                            "displayName": "Solid"
+                        },
+                        {
+                            "value": "2",
+                            "displayName": "Dotted"
+                        }
+                    ]}
+                }
+            }
+        },
+        "axis2": {
+            "displayName": "Secondary Y-Axis",
+            "properties": {
+                "scaleType": {
+                    "displayName": "Scale type",
+                    "type" : { "enumeration": [
+                        {
+                            "value": "0",
+                            "displayName": "Linear"
+                        },
+                        {
+                            "value": "1",
+                            "displayName": "Log"
+                        }
+                    ]}
+                },
+                "start": {
+                    "displayName": "Start",
+                    "description": "Start value of the axis",
+                    "placeHolderText": "Auto",
+                    "type": { "numeric": true }
+                },
+                "end": {
+                    "displayName": "End",
+                    "description": "End value of the axis",
+                    "placeHolderText": "Auto",
+                    "type": { "numeric": true }
+                },
+                "color": {
+                    "displayName": "Tick Color",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "fontColor": {
+                    "displayName": "Color",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "fontSize": {
+                    "displayName": "Text Size",
+                    "type": { "formatting": { "fontSize": true } }
+                },
+                "fontFamily": {
+                    "displayName": "Font family",
+                    "type": {
+                        "formatting": {
+                            "fontFamily": true
+                        }
+                    }
+                },
+                "labelDisplayUnits": {
+                    "displayName": "Display units",
+                    "description": "Selects the unit (millions, billions, etc.)",
+                    "type": {
+                        "formatting": {
+                            "labelDisplayUnits": true
+                        }
+                    }
+                },
+                "labelPrecision": {
+                    "displayName": "Value decimal places",
+                    "description": "Select the number of decimal places to display",
+                    "placeHolderText": "Auto",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "showTitle": {
+                    "displayName": "Show Title",
+                    "type": { "bool": true }
+                },
+                "title": {
+                    "displayName": "Title",
+                    "placeHolderText": "Auto",
+                    "type": { "text": true }
+                },
+                "titleFontColor": {
+                    "displayName": "Title Color",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "titleFontSize": {
+                    "displayName": "Title Text Size",
+                    "type": { "formatting": { "fontSize": true } }
+                },
+                "titleFontFamily": {
+                    "displayName": "Title Font family",
+                    "type": {
+                        "formatting": {
+                            "fontFamily": true
+                        }
+                    }
+                },
+                "titleAlignment": {
+                    "displayName": "Title Alignment",
+                    "type": {
+                        "formatting": {
+                            "alignment": true
+                        }
+                    }
+                }
+            }
+        },
+        "dataValues": {
+            "displayName": "Data values",
+            "properties": {
+                "labelDisplayUnits": {
+                    "displayName": "Display units",
+                    "description": "Selects the unit (millions, billions, etc.)",
+                    "type": {
+                        "formatting": {
+                            "labelDisplayUnits": true
+                        }
+                    }
+                },
+                "labelPrecision": {
+                    "displayName": "Value decimal places",
+                    "description": "Select the number of decimal places to display",
+                    "placeHolderText": "Auto",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "labelDisplayUnitsSecondary": {
+                    "displayName": "Display units (Secondary)",
+                    "description": "Selects the unit (millions, billions, etc.)",
+                    "type": {
+                        "formatting": {
+                            "labelDisplayUnits": true
+                        }
+                    }
+                },
+                "labelPrecisionSecondary": {
+                    "displayName": "Value decimal places (Secondary)",
+                    "description": "Select the number of decimal places to display",
+                    "placeHolderText": "Auto",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        },
+        "dataColors": {
+            "displayName": "Data colors",
+            "properties": {
+                "oneFill": {
+                    "displayName": "Default Color",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "showAll": {
+                    "displayName": "Show all",
+                    "type": { "bool": true }
+                },
+                "fill": {
+                    "displayName": "Fill",
+                    "type": { "fill": { "solid": { "color": true } } }
+                }
+            }
+        },
+        "markers": {
+            "displayName": "Data markers",
+            "properties": {
+                "show": {
+                    "displayName": "Show",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "markerAutomatic": {
+                    "displayName": "Automatic type",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "markerType": {
+                    "displayName": "Marker type",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "value": "0",
+                                "displayName": "● - Circle"
+                            },
+                            {
+                                "value": "1",
+                                "displayName": "■ - Square"
+                            },
+                            {
+                                "value": "2",
+                                "displayName": "▲ - Triangle"
+                            },
+                            {
+                                "value": "3",
+                                "displayName": "♦ - Diamond"
+                            },
+                            {
+                                "value": "4",
+                                "displayName": "× - Cross"
+                            },
+                            {
+                                "value": "5",
+                                "displayName": "None"
+                            }
+                        ]
+                    }
+                },
+                "strokeWidth": {
+                    "displayName": "Marker size",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        },
+        "dataLabels": {
+            "displayName": "Data labels",
+            "properties": {
+                "show": {
+                    "displayName": "Show",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "fontColor": {
+                    "displayName": "Color",
+                    "type": { "fill": { "solid": { "color": true } } }
+                },
+                "fontSize": {
+                    "displayName": "Text Size",
+                    "type": { "formatting": { "fontSize": true } },
+                    "description": "If datalabels are to big, the default size is used."
+                },
+                "fontFamily": {
+                    "displayName": "Font family",
+                    "type": {
+                        "formatting": {
+                            "fontFamily": true
+                        }
+                    }
+                },
+                "labelType": {
+                    "displayName": "Type",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "value": "0",
+                                "displayName": "Name"
+                            },
+                            {
+                                "value": "1",
+                                "displayName": "Values"
+                            },
+                            {
+                                "value": "2",
+                                "displayName": "Name + values"
+                            }
+                        ]
+                    }
+                },
+                "labelDisplayUnits": {
+                    "displayName": "Display units",
+                    "description": "Selects the unit (millions, billions, etc.)",
+                    "type": {
+                        "formatting": {
+                            "labelDisplayUnits": true
+                        }
+                    }
+                },
+                "labelPrecision": {
+                    "displayName": "Value decimal places",
+                    "description": "Select the number of decimal places to display",
+                    "placeHolderText": "Auto",
+                    "type": {
+                        "numeric": true
+                    }
+                }
+            }
+        },
+        "shapes": {
+            "displayName": "Shapes",
+            "properties": {
+                "useDefault": {
+                    "displayName": "Default",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "strokeWidth": {
+                    "displayName": "Stroke size",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                "lineStyle": {
+                    "displayName": "Line style",
+                    "type" : {
+                        "enumeration": [
+                            {
+                                "value": "0",
+                                "displayName": "Dashed"
+                            },
+                            {
+                                "value": "1",
+                                "displayName": "Solid"
+                            },
+                            {
+                                "value": "2",
+                                "displayName": "Dotted"
+                            }
+                        ]
+                    }
+                },
+                "lineCap": {
+                    "displayName": "Line cap type",
+                    "type": {
+                        "enumeration": [
+                            {
+                                "value": "0",
+                                "displayName": "Square"
+                            },
+                            {
+                                "value": "1",
+                                "displayName": "Round"
+                            },
+                            {
+                                "value": "2",
+                                "displayName": "Flat"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "sorting": {
+        "default": {   }
+    },
+    "suppressDefaultTitle": true,
+    "supportsHighlight": false,
+    "tooltips": {
+        "supportedTypes": {
+            "default": true,
+            "canvas": true
+        },
+        "roles": [
+            "Tooltips"
+        ]
+    }
+}
